@@ -41,14 +41,14 @@ const sliders = document.querySelectorAll("[data-slider]");
 
 const initSlider = function(currentSlider) {
 
-  const sldierContainer = currentSlider.querySelector("[data-slider-container]");
+  const sliderContainer = currentSlider.querySelector("[data-slider-container]");
   const sliderPrevBtn = currentSlider.querySelector("[data-slider-prev]");
   const sliderNextBtn = currentSlider.querySelector("[data-slider-next]");
 
   let currentSlidePos = 0;
 
   const moveSliderItem = function () {
-    sldierContainer.style.transform = `translateX(-${sldierContainer.children[currentSlidePos].offsetLeft}px)`;
+    sliderContainer.style.transform = `translateX(-${sliderContainer.children[currentSlidePos].offsetLeft}px)`;
   }
 
   /**
@@ -56,7 +56,7 @@ const initSlider = function(currentSlider) {
    */
 
   const slideNext = function () {
-    const slideEnd = currentSlidePos >= sldierContainer.childElementCount - 1;
+    const slideEnd = currentSlidePos >= sliderContainer.childElementCount - 1;
 
     if (slideEnd) {
       currentSlidePos = 0;
@@ -76,7 +76,7 @@ const initSlider = function(currentSlider) {
    const slidePrev = function () {
 
     if (currentSlidePos <= 0) {
-      currentSlidePos = sldierContainer.childElementCount - 1;
+      currentSlidePos = sliderContainer.childElementCount - 1;
     } else {
       currentSlidePos--;
     }
@@ -86,7 +86,7 @@ const initSlider = function(currentSlider) {
 
   sliderPrevBtn.addEventListener("click", slidePrev);
 
-  const dontHaveExtraItem = sldierContainer.childElementCount <= 1;
+  const dontHaveExtraItem = sliderContainer.childElementCount <= 1;
   if (dontHaveExtraItem) {
     sliderNextBtn.style.display = "none";
     sliderPrevBtn.style.display = "none";
